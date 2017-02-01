@@ -11,6 +11,7 @@ export default class Sticky extends React.Component {
     stickyStyle: React.PropTypes.object,
     topOffset: React.PropTypes.number,
     bottomOffset: React.PropTypes.number,
+    leftOffset: React.PropTypes.number,
     onStickyStateChange: React.PropTypes.func
   }
 
@@ -22,6 +23,7 @@ export default class Sticky extends React.Component {
     stickyStyle: {},
     topOffset: 0,
     bottomOffset: 0,
+    leftOffset: 0,
     onStickyStateChange: () => {}
   }
 
@@ -54,7 +56,7 @@ export default class Sticky extends React.Component {
   }
 
   getXOffset() {
-    return this.refs.placeholder.getBoundingClientRect().left;
+    return this.refs.placeholder.getBoundingClientRect().left + this.props.leftOffset;
   }
 
   getWidth() {
